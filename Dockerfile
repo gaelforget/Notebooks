@@ -10,7 +10,7 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.0-rc1-li
 USER ${NB_USER}
 
 COPY --chown=${NB_USER}:users ./binder/plutoserver ./plutoserver
-COPY --chown=${NB_USER}:users ./binder/environment.yml ./environment.yml
+COPY --chown=${NB_USER}:users ./environment.yml ./environment.yml
 COPY --chown=${NB_USER}:users ./binder/setup.py ./setup.py
 COPY --chown=${NB_USER}:users ./binder/runpluto.sh ./runpluto.sh
 
