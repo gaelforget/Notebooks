@@ -3,12 +3,6 @@ using ClimateModels
 #import PlutoSliderServer
 #import Downloads
 
-println("where are we now?")
-println(pth00)
-println(pwd())
-#println(readdir(homedir()))
-#println(readdir(pth00))
-
 function fig1to5(x::ModelConfig)
     pth0=pwd()
     pth01=joinpath(pth0,"page","__site")
@@ -25,14 +19,12 @@ function fig1to5(x::ModelConfig)
     #2. run loop over notebooks
 
     cp(joinpath(pth0,"IPCC","pth_ipcc.jl"),"pth_ipcc.jl")
-    for ii in 1:1
+    for ii in x.notebookIDs
         fil_in="notebook_0$(ii).jl"
         #cp(joinpath(pth0,"IPCC",fil_in),fil_in)
         #include(fil_in)
-        println("where are we then?")
+        println("where are we now $i?")
         println(pwd())
-        println(pth01)
-        println(fil_in)
         println(readdir(pwd()))
         #PlutoSliderServer.export_notebook(fil_in)
         #fil_out="notebook_0$(ii).html"
@@ -47,7 +39,7 @@ function fig1to5(x::ModelConfig)
     return x
 end 
 
-MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebooks => [1:5]))
+MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => [1:2]))
 setup(MC)
 build(MC)
 launch(MC)
