@@ -42,7 +42,18 @@ function fig1to5(x::ModelConfig)
 end 
 
 MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => 1:5))
-setup(MC)
+
+import Pkg; Pkg.add("Suppressor"); using Suppressor;
+
+println("step 1")
+
+@suppress setup(MC)
+
+println("step 2")
+
 build(MC)
+
+println("step 3")
+
 #launch(MC)
 
