@@ -43,7 +43,7 @@ function fig1to5(x::ModelConfig)
     return x
 end 
 
-MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => [1:2]))
+MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => 1:2))
 setup(MC)
 build(MC)
 launch(MC)
