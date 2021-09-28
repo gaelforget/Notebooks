@@ -3,6 +3,10 @@ using ClimateModels
 #import PlutoSliderServer
 #import Downloads
 
+println("where are we now?")
+println(pwd())
+println(readdir(pwd()))
+
 function fig1to5(x::ModelConfig)
     pth0=pwd()
     pth01=joinpath(pth0,"page","__site")
