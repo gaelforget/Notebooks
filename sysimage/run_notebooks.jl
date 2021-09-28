@@ -1,5 +1,7 @@
 
-using ClimateModels, PlutoSliderServer, Downloads
+using ClimateModels
+#import PlutoSliderServer
+#import Downloads
 
 function fig1to5(x::ModelConfig)
     pth0=pwd()
@@ -35,5 +37,5 @@ end
 MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebooks => [1:5]))
 setup(MC)
 build(MC)
-launch(MC)
+#launch(MC)
 
