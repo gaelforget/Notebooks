@@ -44,6 +44,7 @@ jobs:
             cd(pth00);
             println(readdir(pth00));
             println(readdir(joinpath(pth00,"IPCC")));
+            println(readdir(joinpath(pth00,"page")));
             using Pkg;
             Pkg.activate(pth00);
             Pkg.instantiate();
