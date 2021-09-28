@@ -3,10 +3,11 @@ using ClimateModels
 #import PlutoSliderServer
 #import Downloads
 
-cd(joinpath(homedir(),"GlobalOceanNotebooks"))
 println("where are we now?")
+println(pth00)
 println(pwd())
-println(readdir(pwd()))
+#println(readdir(homedir()))
+#println(readdir(pth00))
 
 function fig1to5(x::ModelConfig)
     pth0=pwd()
