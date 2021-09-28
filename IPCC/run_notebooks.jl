@@ -11,8 +11,8 @@ function fig1to5(x::ModelConfig)
 
     #1.download
 
-    #url="https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/"
-    url="https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20210809/"
+    url="https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/"
+    #url="https://dap.ceda.ac.uk/badc/ar6_wg1/data/spm/spm_01/v20210809/"
     pth=joinpath(x.folder,string(x.ID))
     run(`wget -q -e robots=off --mirror --no-parent -r $url`)
 
@@ -41,7 +41,7 @@ function fig1to5(x::ModelConfig)
     return x
 end 
 
-MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => 1:2))
+MC=ModelConfig(model="IPCC-AR6-WG1",configuration=fig1to5,inputs=Dict(:notebookIDs => 1:5))
 setup(MC)
 build(MC)
 launch(MC)
