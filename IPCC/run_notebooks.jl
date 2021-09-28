@@ -1,6 +1,6 @@
 
 using ClimateModels
-#import PlutoSliderServer
+import PlutoSliderServer
 #import Downloads
 
 function fig1to5(x::ModelConfig)
@@ -25,14 +25,12 @@ function fig1to5(x::ModelConfig)
         println(pwd())
         println(readdir(pwd()))
         cp(joinpath(pth0,"IPCC",fil_in),fil_in)
-        let
-            include(fil_in)
-        end
-        println("success 1")
-        #PlutoSliderServer.export_notebook(fil_in)
+        println("success 1/3")
+        PlutoSliderServer.export_notebook(fil_in)
+        println("success 2/3")
         fil_out="notebook_0$(ii).html"
         isdir(pth01) ? cp(fil_out,joinpath(pth01,fil_out))  : nothing
-        println("success 2")
+        println("success 3/3")
     end
 
     cd(pth0)
