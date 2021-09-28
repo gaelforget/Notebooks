@@ -3,6 +3,7 @@ using ClimateModels
 #import PlutoSliderServer
 #import Downloads
 
+cd(joinpath(homedir(),"GlobalOceanNotebooks"))
 println("where are we now?")
 println(pwd())
 println(readdir(pwd()))
@@ -27,12 +28,11 @@ function fig1to5(x::ModelConfig)
         fil_in="notebook_0$(ii).jl"
         #cp(joinpath(pth0,"IPCC",fil_in),fil_in)
         #include(fil_in)
-        println("where are we?")
+        println("where are we then?")
         println(pwd())
-        println(pth)
-        println(pth0)
         println(pth01)
         println(fil_in)
+        println(readdir(pwd()))
         #PlutoSliderServer.export_notebook(fil_in)
         #fil_out="notebook_0$(ii).html"
         #isdir(pth01) ? cp(fil_out,joinpath(pth01,fil_out))  : nothing
