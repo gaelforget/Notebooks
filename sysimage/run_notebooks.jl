@@ -21,8 +21,14 @@ function fig1to5(x::ModelConfig)
     cp(joinpath(pth0,"IPCC","pth_ipcc.jl"),"pth_ipcc.jl")
     for ii in 1:1
         fil_in="notebook_0$(ii).jl"
-        cp(joinpath(pth0,"IPCC",fil_in),fil_in)
-        include(fil_in)
+        #cp(joinpath(pth0,"IPCC",fil_in),fil_in)
+        #include(fil_in)
+        println("where are we?")
+        println(pwd())
+        println(pth)
+        println(pth0)
+        println(pth01)
+        println(fil_in)
         #PlutoSliderServer.export_notebook(fil_in)
         #fil_out="notebook_0$(ii).html"
         #isdir(pth01) ? cp(fil_out,joinpath(pth01,fil_out))  : nothing
