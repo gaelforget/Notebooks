@@ -44,9 +44,9 @@ jobs:
             cd(pth00);
             using Pkg;
             Pkg.activate(; temp=true);
-            Pkg.add.(["ClimateModels","CairoMakie","DataFrames", "CSV"])
+            Pkg.add.(["ClimateModels","CairoMakie","DataFrames", "CSV"]);
             Pkg.precompile();
-            Pkg.add.(["Pluto", "PlutoUI", "PlutoSliderServer"])
+            Pkg.add.(["Pluto", "PlutoUI", "PlutoSliderServer"]);
             Pkg.precompile();
             include("IPCC/run_notebooks.jl");'
     - name: Build and Deploy
