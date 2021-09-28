@@ -25,18 +25,18 @@ function fig1to5(x::ModelConfig)
         println(pwd())
         println(readdir(pwd()))
         cp(joinpath(pth0,"IPCC",fil_in),fil_in)
-        println("success 1/3")
+        println("success 1/3 at $(ii)")
         PlutoSliderServer.export_notebook(fil_in)
-        println("success 2/3")
+        println("success 2/3 at $(ii)")
         fil_out="notebook_0$(ii).html"
         isdir(pth01) ? cp(fil_out,joinpath(pth01,fil_out))  : nothing
-        println("success 3/3")
+        println("success 3/3 at $(ii)")
     end
 
     cd(pth0)
 
-    println.(readdir(pth0))
-    println.(readdir(pth))
+    println("pth01 : $(pth01)")
+    println.(readdir(pth01))
 
     return x
 end 
@@ -46,17 +46,14 @@ end
 url=PackageSpec(url="https://github.com/JuliaOcean/AirSeaFluxes.jl")
 MC=ModelConfig(model=url)
 
-import Pkg; Pkg.add("Suppressor"); using Suppressor;
+#import Pkg; Pkg.add("Suppressor"); using Suppressor;
 
 println("step 1")
 
-@suppress setup(MC)
+#@suppress setup(MC)
+mkdir(joinpath(MC.folder,string(MC.ID)))
 
 println("step 2")
 
-build(MC)
-
-println("step 3")
-
-#launch(MC)
+fig1to5(MC)
 
