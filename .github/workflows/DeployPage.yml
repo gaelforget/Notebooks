@@ -40,10 +40,10 @@ jobs:
             import PkgPage;
             PkgPage.optimize(input="page", output="")'
     - run: julia -e '
-            pth00=homedir();
+            pth00=joinpath(homedir(),"work");
             cd(pth00);
-            println(readdir(pwd()));
-            println(readdir(joinpath(pth00,"work")));
+            println(readdir(pth00));
+            println(readdir(joinpath(pth00,"GlobalOceanNotebooks")));
             using Pkg;
             Pkg.activate(pth00);
             Pkg.instantiate();
