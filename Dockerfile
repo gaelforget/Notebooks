@@ -35,7 +35,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends libnetcdf-dev && \
     apt-get install -y --no-install-recommends libnetcdff-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN mkdir ${JULIA_DEPOT_PATH}
+RUN chown -Rh $user:$user ${JULIA_DEPOT_PATH}
 RUN julia sysimage/create_sysimage.jl
 
 USER ${NB_USER}
