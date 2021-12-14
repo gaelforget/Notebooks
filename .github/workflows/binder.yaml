@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-      - v0p3p6c
+      - v0p3p6d
 jobs:
   binder:
     runs-on: ubuntu-latest
