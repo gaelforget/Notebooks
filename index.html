@@ -11,7 +11,8 @@
 
   <!-- CSS -->
   
-  
+   <link rel="stylesheet" href="/GlobalOceanNotebooks/libs/highlight/styles/atom-one-dark.css">
+   
   <link rel="stylesheet" href="/GlobalOceanNotebooks/css/bootstrap.min.css">
   <style>.bg-primary {
   background-color: #3f6388 !important;
@@ -107,6 +108,10 @@ padding-right:  10px;
         
         <li class="nav-item">
           <a class="nav-link" href="#mitgcm">MITgcm</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#workshop">Workshop</a>
         </li>
         
         <li class="nav-item">
@@ -351,7 +356,28 @@ IPCC report fig 5
     </div>
   </div>
 </section>
-<section id="more" class="scrollspy section-bg-color">
+<section id="workshop" class="scrollspy section-bg-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>Marine Ecosystem Modeling Workshop</h2></p>
+<a id="workshop" class="anchor"></a>
+<p>Notebooks below were presented as part of the JuliaCon 2021 Workshop on <code>Modeling Marine Ecosystems At Multiple Scales Using Julia</code>. More detail is available in the <a href="https://github.com/JuliaOcean/MarineEcosystemsJuliaCon2021.jl">workshop repository</a>.</p>
+<ul>
+<li><p><a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/AIBECSExample.html">AIBECSExample</a> &#40;<a href="https://github.com/JuliaOcean/MarineEcosystemsJuliaCon2021.jl/blob/main/AIBECSExample.jl">code link</a>&#41; : global steady-state biogeochemistry and gridded transport models that run fast for long time scales &#40;centuries or even millennia&#41;.</p>
+</li>
+<li><p><a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/PlanktonIndividualExample.html">PlanktonIndividualExample</a> &#40;<a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/PlanktonIndividualExample.jl">code link</a>&#41;  local to global agent-based model, particularly suited to study microbial communities, plankton physiology, and nutrient cycles.</p>
+</li>
+<li><p><a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/MITgcm_tutorial_global_oce_biogeo.html">MITgcm&#95;tutorial&#95;global&#95;oce&#95;biogeo</a> &#40;<a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/MITgcm_tutorial_global_oce_biogeo.jl">code link</a>&#41; : interface to full-featured, Fortran-based, general circulation model and its output &#40;transports, chemistry, ecology, ocean, sea-ice, atmosphere, and more&#41;.</p>
+</li>
+<li><p><a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/IndividualDisplacementsExample.html">IndividualDisplacementsExample</a> &#40;<a href="https://juliaocean.github.io/MarineEcosystemsJuliaCon2021.jl/dev/IndividualDisplacementsExample.jl">code link</a>&#41; : local to global particle tracking, for simulating dispersion, connectivity, transports in the ocean or atmosphere, etc.</p>
+</li>
+</ul>
+<p>      </div>
+    </div>
+  </div>
+</section>
+<section id="more" class="scrollspy">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
@@ -373,7 +399,7 @@ IPCC report fig 5
 <p><strong>Open Cloud Services</strong></p>
 <p>We are very grateful to the <a href="https://mybinder.readthedocs.io/en/latest/about/federation.html">BinderHub Federation</a> for deploying public BinderHubs to serve the community. Visiting <a href="https://mybinder.org">mybinder.org</a> will randomly redirect you to one of the BinderHubs selected at random. The shorcuts below are configured for the <code>JuliaClimate</code> repository more specifically. They should be able to run the notebooks listed above with reduced latency. Memory limitations can be an issue though. </p>
 <div class="alert alert-info" role="alert">
-For repeated use it is advised to run the notebooks on your local computer. Not only will this probably be faster than using mybinder but also it saves mybinder funds that allow them to provide precious free cloud services to the community.</div>
+For repeated use it is suggested that you run the notebooks on your local computer instead if possible. Not only will this probably be faster than using mybinder but it will also save mybinder some of the funds that allow them to provide these precious, shared, cloud services to the community free of charge.</div>
 <ul>
 <li><p><a href="https://gesis.mybinder.org/v2/gh/JuliaClimate/GlobalOceanNotebooks/HEAD?urlpath&#61;lab">gesis.mybinder.org</a></p>
 </li>
@@ -384,6 +410,10 @@ For repeated use it is advised to run the notebooks on your local computer. Not 
 <li><p><a href="https://turing.mybinder.org/v2/gh/JuliaClimate/GlobalOceanNotebooks/HEAD?urlpath&#61;lab">turing.mybinder.org</a></p>
 </li>
 </ul>
+<p>To run a notebook locally, i.e. on your computer rather than in the cloud, open <code>julia</code>, copy the <code>code link</code> for the chosen notebook, and execute the following commands. Or start <a href="https://github.com/fonsp/Pluto.jl/wiki">Pluto.jl</a> from <code>julia</code> and paste the url afterwards.</p>
+<pre><code class="julia hljs"><span class="hljs-keyword">using</span> Pluto, Downloads
+url=<span class="hljs-string">&quot;https://raw.githubusercontent.com/gaelforget/ClimateModels.jl/master/examples/IPCC.jl&quot;</span>
+Pluto.run(notebook=Downloads.download(url))</code></pre>
 <p>      </div>
     </div>
   </div>
@@ -395,6 +425,10 @@ For repeated use it is advised to run the notebooks on your local computer. Not 
 </footer>
 </div><!-- CONTENT ENDS HERE -->
   
+  
+      
+
+
   
   <script src="/GlobalOceanNotebooks/libs/simple-scrollspy.min.js"></script>
   <script>
