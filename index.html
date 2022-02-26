@@ -169,17 +169,16 @@ padding-right:  10px;
 </li>
 <li><p><a href="#individual-displacements">IndividualDisplacements.jl</a></p>
 </li>
-<li><p><a href="#ocean-state-estimation">OceanStateEstimation.jl</a></p>
-</li>
 <li><p><a href="#ocean-robots">OceanRobots.jl</a></p>
+</li>
+<li><p><a href="#ocean-state-estimation">OceanStateEstimation.jl</a></p>
 </li>
 <li><p><a href="#misc">Miscellaneous</a></p>
 </li>
 </ul>
 <p>The <code>ClimateModels.jl</code> package provides an interface to models often used in climate science. Included notebooks provide examples that either run models and generate new output, or replay model output generated earlier &#40;e.g. from CMIP6 or the 2021 IPCC report&#41;. Additional examples for the <a href="https://mitgcm.readthedocs.io/en/latest/">MIT general circulation model</a> are provided in <code>MITgcmTools.jl</code>.</p>
 <p>An important requirement in climate science is to derive transports using native model grid output to e.g. precisely close energy budgets. This is one of the applications of <code>MeshArrays.jl</code> – the analysis of global transports derived from gridded model output. Topics covered via <code>MeshArrays.jl</code> also include interpolation and geography.</p>
-<p><code>IndividualDisplacements.jl</code> extends this approach by providing a <a href="https://en.wikipedia.org/wiki/Lagrangian_and_Eulerian_specification_of_the_flow_field">particle tracking</a> framework that readily operates on climate model <code>C-grids</code> using <code>MeshArrays.jl</code>. <code>OceanStateEstimation.jl</code> and <code>OceanRobots.jl</code> provide examples that access ocean data products.</p>
-<p>The <code>miscellaneous</code> section touches on topics such as files &#40;incl. NetCDF and Zarr&#41;, visualization, cloud services, and user directions.</p>
+<p><code>IndividualDisplacements.jl</code> extends this approach by providing a <a href="https://en.wikipedia.org/wiki/Lagrangian_and_Eulerian_specification_of_the_flow_field">particle tracking</a> framework that readily operates on climate model <code>C-grids</code> using <code>MeshArrays.jl</code>.  Examples that let you access and explore ocean data products are provided in <code>OceanRobots.jl</code> and <code>OceanStateEstimation.jl</code>. The <code>miscellaneous</code> section touches on topics such as files &#40;incl. NetCDF and Zarr&#41;, visualization, cloud services, and user directions.</p>
 <p>      </div>
     </div>
   </div>
