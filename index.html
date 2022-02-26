@@ -91,7 +91,7 @@ padding-right:  10px;
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#vizuals">Vizuals</a>
+          <a class="nav-link" href="#visuals">Visuals</a>
         </li>
         
         <li class="nav-item">
@@ -108,6 +108,10 @@ padding-right:  10px;
         
         <li class="nav-item">
           <a class="nav-link" href="#mitgcm">MITgcm</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#estimates">Estimates</a>
         </li>
         
         <li class="nav-item">
@@ -175,16 +179,16 @@ padding-right:  10px;
 <p>The <code>ClimateModels.jl</code> package provides an interface to models often used in climate science. Included notebooks provide examples that either run models and generate new output, or replay model output generated earlier &#40;e.g. from CMIP6 or the 2021 IPCC report&#41;.</p>
 <p>An important requirement in climate science is to derive transports using native model grid output to e.g. precisely close energy budgets. This is one of the applications of <code>MeshArrays.jl</code> – the analysis of global transports derived from gridded model output. </p>
 <p><code>IndividualDisplacements.jl</code> extends this approach by providing a <a href="https://en.wikipedia.org/wiki/Lagrangian_and_Eulerian_specification_of_the_flow_field">particle tracking</a> framework that readily operates on climate model <code>C-grids</code> using <code>MeshArrays.jl</code>. In some of the examples, model output from the <a href="https://mitgcm.readthedocs.io/en/latest/">MITgcm</a> are loaded using functions provided by <code>MITgcmTools.jl</code>.</p>
-<p>Final section touches on topics like reading files &#40;incl. NetCDF and Zarr&#41;, vizualizations, cloud services, and more.</p>
+<p>Final section touches on topics like reading files &#40;incl. NetCDF and Zarr&#41;, visualizations, cloud services, and more.</p>
 <p>      </div>
     </div>
   </div>
 </section>
-<section id="vizuals" class="scrollspy">
+<section id="visuals" class="scrollspy">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <h2>Vizual Examples</h2></p>
+        <h2>Visual Examples</h2></p>
 <a id="sample-viz" class="anchor"></a>
 <p>The plots below are examples generated using the Julia packages listed in the <a href="#introduction">introduction</a> and notebooks indicated below.</p>
  <div style="text-align:center;"></p>
@@ -292,7 +296,7 @@ IPCC report fig 5
 <a id="mesh-arrays" class="anchor"></a>
 <p><a href="https://juliaclimate.github.io/MeshArrays.jl/dev">MeshArrays.jl</a> defines an array type that can contain / organize / distribute collections of inter-connected arrays as generally done in climate models. These data structures can be used to simulate variables of the climate system such as <a href="https://doi.org/10.21105/joss.02813">particles</a> and <a href="https://doi.org/10.1038/s41561-019-0333-7">transports</a>.</p>
 <ul>
-<li><p><a href="https://juliaclimate.github.io/MeshArrays.jl/dev/tutorials/geography.html">Geography</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/MeshArrays.jl/master/examples/geography.jl">code link</a>&#41; tutorial : deals with interpolation, projection, and vizualization of gridded fields in geographic coordinates.</p>
+<li><p><a href="https://juliaclimate.github.io/MeshArrays.jl/dev/tutorials/geography.html">Geography</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/MeshArrays.jl/master/examples/geography.jl">code link</a>&#41; tutorial : deals with interpolation, projection, and visualization of gridded fields in geographic coordinates.</p>
 </li>
 <li><p><a href="https://juliaclimate.github.io/MeshArrays.jl/dev/tutorials/vectors.html">Vector Fields</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/MeshArrays.jl/master/examples/vectors.jl">code link</a>&#41; tutorial : covers the computation of global transports, streamfunctions, potentials, gradients, curls, and more.</p>
 </li>
@@ -330,11 +334,11 @@ IPCC report fig 5
       <div class="col-lg-10 mx-auto">
         <h2>MITgcmTools.jl</h2></p>
 <a id="mitgcm-tools" class="anchor"></a>
-<p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/">MITgcmTools.jl</a> is a set of tools for running <a href="https://mitgcm.readthedocs.io/en/latest/?badge&#61;latest">MITgcm</a>, analyzing its output, and/or modifying its inputs. The package documentation provides a series of <a href="https://github.com/fonsp/Pluto.jl">Pluto.jl</a> notebooks, which e.g. run <code>MITgcm</code> interactively via the <code>ClimateModels.jl</code> interface, rely on <code>MeshArrays.jl</code> for vizualizing results, or use <code>IndividualDisplacements.jl</code> to derive material pathways.</p>
+<p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/">MITgcmTools.jl</a> is a set of tools for running <a href="https://mitgcm.readthedocs.io/en/latest/?badge&#61;latest">MITgcm</a>, analyzing its output, and/or modifying its inputs. The package documentation provides a series of <a href="https://github.com/fonsp/Pluto.jl">Pluto.jl</a> notebooks, which e.g. run <code>MITgcm</code> interactively via the <code>ClimateModels.jl</code> interface, rely on <code>MeshArrays.jl</code> for visualizing results, or use <code>IndividualDisplacements.jl</code> to derive material pathways.</p>
 <ul>
 <li><p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/examples/MITgcm_configurations.html">MITgcm_configurations.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/MITgcmTools.jl/master/examples/MITgcm_configurations.jl">code link</a>&#41;; explore MITgcm configurations and their parameters.</p>
 </li>
-<li><p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/examples/MITgcm_scan_output.html">MITgcm&#95;scan&#95;output.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/MITgcmTools.jl/master/examples/MITgcm_scan_output.jl">code link</a>&#41; : scan run directory, standard output, read grid files, and vizualize. </p>
+<li><p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/examples/MITgcm_scan_output.html">MITgcm&#95;scan&#95;output.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/MITgcmTools.jl/master/examples/MITgcm_scan_output.jl">code link</a>&#41; : scan run directory, standard output, read grid files, and visualize. </p>
 </li>
 <li><p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/examples/MITgcm_run.html">MITgcm_run.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/MITgcmTools.jl/master/examples/MITgcm_run.jl">code link</a>&#41; : a detailed look into compiling and running the model.</p>
 </li>
@@ -347,16 +351,27 @@ IPCC report fig 5
 <li><p><a href="https://gaelforget.github.io/MITgcmTools.jl/dev/examples/HS94_Makie.html">HS94_Makie.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/MITgcmTools.jl/master/examples/HS94_Makie.jl">code link</a>&#41; : using <code>Makie.jl</code> instead of <code>Plots.jl</code></p>
 </li>
 </ul>
-<code>See Also</code>
+<p>      </div>
+    </div>
+  </div>
+</section>
+<section id="estimates" class="scrollspy section-bg-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2>OceanStateEstimation.jl</h2></p>
+<a id="ocean-state-estimation" class="anchor"></a>
 <ul>
-<li><p><a href="https://gaelforget.github.io/OceanStateEstimation.jl/dev/">OceanStateEstimation.jl</a>; for example <a href="https://gaelforget.github.io/OceanStateEstimation.jl/dev/examples/ECCO_standard_plots.html">this notebook</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/OceanStateEstimation.jl/master/examples/ECCO_standard_plots.jl">code link</a>&#41; using the <a href="https://ecco-group.org">ECCO v4 reanalysis</a> &#40;MITgcm output&#41;.</p>
+<li><p><a href="https://gaelforget.github.io/OceanStateEstimation.jl/dev/examples/ECCO_standard_plots.html">ECCO&#95;standard&#95;plots.jl</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/OceanStateEstimation.jl/master/examples/ECCO/ECCO_standard_plots.jl">code link</a>&#41; : visualize and compare NASA ocean state estimates &#40;<a href="https://ecco-group.org">ECCO reanalysis</a>&#41;</p>
+</li>
+<li><p><a href="https://gaelforget.github.io/OceanStateEstimation.jl/dev/examples/CBIOMES_climatology_plot.html">CBIOMES&#95;climatology&#95;plot.jll</a> &#40;<a href="https://raw.githubusercontent.com/gaelforget/OceanStateEstimation.jl/master/examples/CBIOMES/CBIOMES_climatology_plot.jl">code link</a>&#41; : climatology maps that describe marine ecosystems &#40;<a href="https://cbiomes.org">CBIOMES program</a>&#41;</p>
 </li>
 </ul>
 <p>      </div>
     </div>
   </div>
 </section>
-<section id="workshop" class="scrollspy section-bg-color">
+<section id="workshop" class="scrollspy">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
@@ -377,7 +392,7 @@ IPCC report fig 5
     </div>
   </div>
 </section>
-<section id="more" class="scrollspy">
+<section id="more" class="scrollspy section-bg-color">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto">
