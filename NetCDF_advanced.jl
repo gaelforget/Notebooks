@@ -54,7 +54,7 @@ folder=joinpath(tempdir(),"NetcdfTestCase1")
 ncfile=joinpath(folder,"speeds.nc")
 
 !isdir(folder) ? mkdir(folder) : nothing
-!isfile(ncfile) ? Downloads.download(url,ncfille) : nothing
+!isfile(ncfile) ? Downloads.download(url,ncfile) : nothing
 ```
 
 """
@@ -72,7 +72,10 @@ begin
 	import NCDatasets as ncd
 	folder=joinpath(tempdir(),"NetcdfTestCase1")
 	ncfile=joinpath(folder,"speeds.nc")
-		
+
+	#open file
+	isfile(ncfile) ? ds=ncd.Dataset(ncfile) : ds=missing
+
 	max_speed(t::Int) = 
 		sqrt(maximum((ds["USFC"][:,:,t].^2 .+ ds["VSFC"][:,:,t].^2), dims = (1,2))[1])
 #		maximum(sqrt.(ds["USFC"][:,:,t].^2 .+ ds["VSFC"][:,:,t].^2), dims = (1,2))[1]
@@ -81,12 +84,13 @@ end
 # ╔═╡ b0ee8229-2e75-4146-ab59-003d82058065
 md"""Once you have downloaded the file to the adequate location, then the test should proceed. 
 
-Completing the computation may take of the order of 10 seconds. 
+Completing the computation may take of the order of 10 to 30 seconds. 
+
+Afterwards we look a parallel methods that speed up computation.
 """
 
 # ╔═╡ b52101ba-483f-4b95-a1cf-44cc0154e8e9
 if isfile(ncfile)
-	ds=ncd.Dataset(ncfile) #open file
 	max_speed(1)
 	max_speed.(1:2400)
 else
