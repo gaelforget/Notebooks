@@ -9,15 +9,15 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-
 
 USER ${NB_USER}
 
-COPY --chown=${NB_USER}:users ./plutoserver ./plutoserver
-COPY --chown=${NB_USER}:users ./sysimage ./sysimage
-COPY --chown=${NB_USER}:users ./tutorials ./tutorials
+COPY ./plutoserver ./plutoserver
+COPY ./sysimage ./sysimage
+COPY ./tutorials ./tutorials
 
 RUN cp ./sysimage/environment.yml ./environment.yml
 RUN cp ./sysimage/setup.py ./setup.py
 RUN cp ./sysimage/runpluto.sh ./runpluto.sh
  
-COPY --chown=${NB_USER}:users ./Project.toml ./Project.toml
+COPY ./Project.toml ./Project.toml
 
 ENV USER_HOME_DIR /home/${NB_USER}
 ENV JULIA_PROJECT ${USER_HOME_DIR}
