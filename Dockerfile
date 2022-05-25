@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:latest
+FROM mas.ops.maap-project.org/root/jupyter-image/vanilla:develop
 
 USER root
 RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-x86_64.tar.gz && \
