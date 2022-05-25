@@ -7,38 +7,15 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-
     ln -s /opt/julia-1.7.2/bin/julia /usr/local/bin/julia && \
     rm julia-1.7.2-linux-x86_64.tar.gz
 
-USER ${NB_USER}
-
-COPY ./plutoserver ./plutoserver
-COPY ./sysimage ./sysimage
-COPY ./tutorials ./tutorials
-
-RUN cp ./sysimage/environment.yml ./environment.yml
-RUN cp ./sysimage/setup.py ./setup.py
-RUN cp ./sysimage/runpluto.sh ./runpluto.sh
- 
-COPY ./Project.toml ./Project.toml
-
 ENV USER_HOME_DIR /projects
-ENV JULIA_PROJECT ${USER_HOME_DIR}
-ENV JULIA_DEPOT_PATH ${USER_HOME_DIR}/.julia
-WORKDIR ${USER_HOME_DIR}
 
-RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
+COPY ./plutoserver ${USER_HOME_DIR}/plutoserver
+COPY ./sysimage ${USER_HOME_DIR}/sysimage
+COPY ./tutorials ${USER_HOME_DIR}/tutorials
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential && \
-    apt-get install -y --no-install-recommends gfortran && \
-    apt-get install -y --no-install-recommends libnetcdf-dev && \
-    apt-get install -y --no-install-recommends libnetcdff-dev && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN cp ${USER_HOME_DIR}/sysimage/environment.yml ${USER_HOME_DIR}/environment.yml
+RUN cp ${USER_HOME_DIR}/sysimage/setup.py ${USER_HOME_DIR}/setup.py
+RUN cp ${USER_HOME_DIR}/sysimage/runpluto.sh ${USER_HOME_DIR}/runpluto.sh
+ 
+COPY ./Project.toml ${USER_HOME_DIR}/Project.toml
 
-RUN jupyter labextension install @jupyterlab/server-proxy && \
-    jupyter lab build && \
-    jupyter lab clean && \
-    pip install . --no-cache-dir && \
-    rm -rf ~/.cache
-RUN julia --project=./ -e "import Pkg; Pkg.instantiate();"
-RUN julia sysimage/download_stuff.jl
-RUN julia sysimage/create_sysimage.jl
-RUN julia --sysimage ExampleSysimage.so sysimage/pre_build_models.jl
