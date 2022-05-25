@@ -19,22 +19,19 @@ RUN cp ./sysimage/runpluto.sh ./runpluto.sh
  
 COPY ./Project.toml ./Project.toml
 
-ENV USER_HOME_DIR /home/${NB_USER}
+ENV USER_HOME_DIR /projects
 ENV JULIA_PROJECT ${USER_HOME_DIR}
 ENV JULIA_DEPOT_PATH ${USER_HOME_DIR}/.julia
 WORKDIR ${USER_HOME_DIR}
 
 RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 
-USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
     apt-get install -y --no-install-recommends gfortran && \
     apt-get install -y --no-install-recommends libnetcdf-dev && \
     apt-get install -y --no-install-recommends libnetcdff-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
-USER ${NB_USER}
 
 RUN jupyter labextension install @jupyterlab/server-proxy && \
     jupyter lab build && \
