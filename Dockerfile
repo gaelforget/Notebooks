@@ -7,15 +7,17 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-
     ln -s /opt/julia-1.7.2/bin/julia /usr/local/bin/julia && \
     rm julia-1.7.2-linux-x86_64.tar.gz
 
-ENV USER_HOME_DIR /projects
+mkdir /usr/local/gf
 
-COPY ./plutoserver ${USER_HOME_DIR}/plutoserver
-COPY ./sysimage ${USER_HOME_DIR}/sysimage
-COPY ./tutorials ${USER_HOME_DIR}/tutorials
+ENV gfpath /usr/local/gf
 
-RUN cp ${USER_HOME_DIR}/sysimage/environment.yml ${USER_HOME_DIR}/environment.yml
-RUN cp ${USER_HOME_DIR}/sysimage/setup.py ${USER_HOME_DIR}/setup.py
-RUN cp ${USER_HOME_DIR}/sysimage/runpluto.sh ${USER_HOME_DIR}/runpluto.sh
+COPY ./plutoserver ${gfpath}/plutoserver
+COPY ./sysimage ${gfpath}/sysimage
+COPY ./tutorials ${gfpath}/tutorials
+
+RUN cp ${gfpath}/sysimage/environment.yml ${gfpath}/environment.yml
+RUN cp ${gfpath}/sysimage/setup.py ${gfpath}/setup.py
+RUN cp ${gfpath}/sysimage/runpluto.sh ${gfpath}/runpluto.sh
  
-COPY ./Project.toml ${USER_HOME_DIR}/Project.toml
+COPY ./Project.toml ${gfpath}/Project.toml
 
