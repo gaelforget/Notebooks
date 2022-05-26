@@ -7,9 +7,8 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-
     ln -s /opt/julia-1.7.2/bin/julia /usr/local/bin/julia && \
     rm julia-1.7.2-linux-x86_64.tar.gz
 
-mkdir /usr/local/gf
-
-ENV gfpath /usr/local/gf
+ENV gfpath /usr/local/etc/gf
+RUN mkdir -p ${gfpath}
 
 COPY ./plutoserver ${gfpath}/plutoserver
 COPY ./sysimage ${gfpath}/sysimage
