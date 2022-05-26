@@ -39,4 +39,7 @@ RUN jupyter labextension install @jupyterlab/server-proxy && \
     rm -rf ~/.cache
 RUN julia --project=${gfpath} -e "import Pkg; Pkg.instantiate();"
 RUN julia ${gfpath}/sysimage/download_stuff.jl
+RUN julia ${gfpath}/sysimage/create_sysimage.jl
+RUN julia --sysimage ${gfpath}/ExampleSysimage.so ${gfpath}/sysimage/pre_build_models.jl
+
 
