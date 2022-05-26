@@ -27,6 +27,7 @@ RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
+    apt-get install -y --no-install-recommends vim && \
     apt-get install -y --no-install-recommends gfortran && \
     apt-get install -y --no-install-recommends openmpi-bin && \
     apt-get install -y --no-install-recommends libnetcdf-dev && \
