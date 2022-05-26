@@ -1,7 +1,5 @@
 using ClimateModels, MITgcmTools, OceanStateEstimation
 using Pluto, PlutoUI, PlutoSliderServer, Downloads
-import Plots
-import CairoMakie
 
 #MC=MITgcm_config(configuration="global_with_exf")
 #setup(MC)
