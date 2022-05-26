@@ -20,3 +20,23 @@ RUN cp ${gfpath}/sysimage/runpluto.sh ${gfpath}/runpluto.sh
  
 COPY ./Project.toml ${gfpath}/Project.toml
 
+ENV JULIA_PROJECT ${gfpath}
+ENV JULIA_DEPOT_PATH ${gfpath}/.julia
+
+RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential && \
+    apt-get install -y --no-install-recommends gfortran && \
+    apt-get install -y --no-install-recommends libnetcdf-dev && \
+    apt-get install -y --no-install-recommends libnetcdff-dev && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN jupyter labextension install @jupyterlab/server-proxy && \
+    jupyter lab build && \
+    jupyter lab clean && \
+    pip install . --no-cache-dir && \
+    rm -rf ~/.cache
+RUN julia --project=${gfpath} -e "import Pkg; Pkg.instantiate();"
+RUN julia sysimage/download_stuff.jl
+
