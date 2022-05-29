@@ -20,8 +20,8 @@ RUN cp ${mainpath}/sysimage/runpluto.sh ${mainpath}/runpluto.sh
  
 COPY ./Project.toml ${mainpath}/Project.toml
 
-ENV JULIA_PROJECT ${gfpath}
-ENV JULIA_DEPOT_PATH ${gfpath}/.julia
+ENV JULIA_PROJECT ${mainpath}
+ENV JULIA_DEPOT_PATH ${mainpath}/.julia
 
 RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 
