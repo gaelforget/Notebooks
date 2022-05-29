@@ -12,9 +12,9 @@ Downloads.download(
   joinpath(OceanStateEstimation.ECCOdiags_path,"interp_coeffs_halfdeg.jld2");
   timeout=60000.0)
 
-include("../tutorials/list_notebooks.jl")
+include("/usr/local/etc/gf/tutorials/list_notebooks.jl")
 notebooks=list_notebooks()
-download_notebooks("jl",notebooks)
+download_notebooks("/usr/local/etc/gf/tutorials/jl",notebooks)
 #find . -name "*.jl" |grep notebooks
 
 

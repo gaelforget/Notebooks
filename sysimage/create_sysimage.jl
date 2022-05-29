@@ -1,7 +1,6 @@
 using PackageCompiler
-create_sysimage([:CSV, :DataFrames, :IJulia, :Pluto, :PlutoUI, 
-                :MeshArrays, :ClimateModels, :MITgcmTools,
-                :UnicodePlots, :CairoMakie, :Plots];
-                precompile_execution_file = "sysimage/warmup.jl",
-                sysimage_path="ExampleSysimage.so",
+
+create_sysimage([:CSV, :DataFrames, :IJulia, :Pluto, :PlutoUI, :PlutoSliderServer,
+                :MeshArrays, :ClimateModels, :MITgcmTools],
+                sysimage_path="/usr/local/etc/gf/ExampleSysimage.so",
                 cpu_target = PackageCompiler.default_app_cpu_target())
