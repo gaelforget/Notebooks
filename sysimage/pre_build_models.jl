@@ -12,6 +12,8 @@ Conda.pip("install", "fair")
 
 ##
 
+Pkg.add(url="https://github.com/gaelforget/ClimateModels.jl",rev="master")
+
 using ClimateModels
 pth=dirname(pathof(ClimateModels))
 
