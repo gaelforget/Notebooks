@@ -12,6 +12,7 @@ Conda.pip("install", "fair")
 
 ##
 
+Pkg.respect_sysimage_versions(false)
 Pkg.add(url="https://github.com/gaelforget/ClimateModels.jl",rev="master")
 
 using ClimateModels
