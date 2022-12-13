@@ -13,6 +13,7 @@ RUN mkdir -p ${mainpath}
 USER ${NB_USER}
 
 COPY --chown=${NB_USER}:users ./src ${mainpath}/src
+COPY --chown=${NB_USER}:users ./sysimage ${mainpath}/sysimage
 COPY --chown=${NB_USER}:users ./src/plutoserver ${mainpath}/plutoserver
 
 RUN cp ${mainpath}/src/setup.py ${mainpath}/setup.py
@@ -50,4 +51,5 @@ RUN jupyter labextension install @jupyterlab/server-proxy && \
     rm -rf ~/.cache
 
 RUN julia --project=${mainpath} -e "import Pkg; Pkg.instantiate();"
+RUN julia ${mainpath}/sysimage/create_sysimage.jl
 

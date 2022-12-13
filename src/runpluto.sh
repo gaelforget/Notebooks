@@ -18,4 +18,5 @@ Pluto.run(
     require_secret_for_access=false
 )"
 echo ${command}
-julia --project="/home/jovyan" -e "${command}"
+julia --project="/home/jovyan" --sysimage="/home/jovyan/ExampleSysimage.so" -e "${command}"
+
