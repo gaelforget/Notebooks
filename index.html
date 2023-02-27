@@ -272,11 +272,13 @@ padding-right:  10px;
 </ul>
 <p>Alternatively, <a href="https://juliageo.github.io/NetCDF.jl/dev">NetCDF.jl</a> also provides interfaces for writing and reading netcdf files. In addition, <a href="https://juliaio.github.io/Zarr.jl/latest/">Zarr.jl</a> supports reading and writing <code>Zarr</code> Datasets from Julia. <a href="https://gaelforget.github.io/NCTiles.jl/dev">NCTiles.jl</a> converts binary data into meta-data-rich <a href="https://en.wikipedia.org/wiki/NetCDF">NetCDF</a> files for &#40;1&#41; a simple rectangular grid; &#40;2&#41; a tiled domain distributed over multiple files.</p>
 <ul>
+<li><p><a href="GeoTIFF_demo.html">GeoTIFF&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/GeoTIFF_demo.jl">notebook url</a>&#41; reads and plots a GeoTIFF file content using <a href="https://github.com/yeesian/ArchGDAL.jl#readme">ArchGDAL.jl</a>.</p>
+</li>
+<li><p><a href="GeoJSON_demo.html">GeoJSON&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/GeoJSON_demo.jl">notebook url</a>&#41; reads and plots a GeoJSON file content using <a href="https://github.com/JuliaGeo/GeoJSON.jl#readme">GeoJSON.jl</a>.</p>
+</li>
+<li><p><a href="Shapefile_demo.html">Shapefile&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/Shapefile_demo.jl">notebook url</a>&#41; reads and plots a Shapefile file content using <a href="https://github.com/JuliaGeo/Shapefile.jl#readme">Shapefile.jl</a>.</p>
+</li>
 <li><p><a href="YAXArrays_demo.html">YAXArrays&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/YAXArrays_demo.jl">notebook url</a>&#41; uses a data cube approach.</p>
-</li>
-<li><p><a href="GeoTIFF_demo.html">GeoTIFF&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/GeoTIFF_demo.jl">notebook url</a>&#41; reads and plots a GeoTIFF file content using <a href="https://github.com/yeesian/ArchGDAL.jl">ArchGDAL.jl</a>.</p>
-</li>
-<li><p><a href="GeoJSON_demo.html">GeoJSON&#95;demo.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/GeoJSON_demo.jl">notebook url</a>&#41; reads and plots a GeoJSON file content using <a href="https://github.com/JuliaGeo/GeoJSON.jl">GeoJSON.jl</a>.</p>
 </li>
 <li><p><a href="http://gaelforget.net/notebooks/xarray_climarray_etc.html">xarray&#95;climarray&#95;etc.jl</a> &#40;<a href="https://raw.githubusercontent.com/JuliaClimate/Notebooks/master/tutorials/xarray_climarray_etc.jl">notebook url</a>&#41; uses Python&#39;s xarray and related Julia packages.</p>
 </li>
@@ -318,15 +320,18 @@ padding-right:  10px;
 
 <p><strong>Run Notebooks</strong></p>
 <a id="howto" class="anchor"></a>
-<p>To start an interactive version of a notebook, on a local computer or in the cloud, start <code>Pluto.jl</code> and then : </p>
+<p>The <a href="https://github.com/fonsp/Pluto.jl/wiki/🔎-Basic-Commands-in-Pluto">Pluto</a> notebook server can be used directly from your familiar Julia environment. Alternatively, you should be able use the computer configuration that we provide on any platform &#40;cloud, laptop, or cluster&#41; as explained below.</p>
+<p>To start an interactive version of a notebook, you then launch <code>Pluto</code> and proceed as follows : </p>
 <ul>
 <li><p>copy <code>notebook url</code> from webpage</p>
 </li>
 <li><p>paste <code>notebook url</code> into Pluto</p>
 </li>
-<li><p><code>open</code> and wait for notebook to boot up</p>
+<li><p>click <code>open</code> and wait for notebook to boot up</p>
 </li>
 <li><p>interact with the reactive notebook</p>
+</li>
+<li><p>shut down or restart notebooks as needed</p>
 </li>
 </ul>
 
@@ -357,32 +362,21 @@ notebooks.open(pluto_url,notebook_url=nbs.url[<span class="hljs-number">1</span>
 
 <br/>
 
-<p><strong>Free Cloud Services</strong></p>
+<p><strong>Computer Configuration</strong></p>
 <a id="cloud" class="anchor"></a>
-<p>We are very grateful to the <a href="https://mybinder.readthedocs.io/en/latest/about/federation.html">BinderHub Federation</a> for deploying public BinderHubs to serve the community at no cost to the user. By default <a href="https://mybinder.org">mybinder.org</a> redirects you to one of the BinderHubs selected at random. Below we provide shorcuts and configurations customized for <code>JuliaClimate/Notebooks</code>. </p>
-<ul>
-<li><p><a href="https://gesis.mybinder.org/v2/gh/JuliaClimate/Notebooks/HEAD?urlpath&#61;lab">gesis.mybinder.org</a></p>
-</li>
-<li><p><a href="https://gke.mybinder.org/v2/gh/JuliaClimate/Notebooks/HEAD?urlpath&#61;lab">gke.mybinder.org</a></p>
-</li>
-<li><p><a href="https://ovh.mybinder.org/v2/gh/JuliaClimate/Notebooks/HEAD?urlpath&#61;lab">ovh.mybinder.org</a></p>
-</li>
-<li><p><a href="https://turing.mybinder.org/v2/gh/JuliaClimate/Notebooks/HEAD?urlpath&#61;lab">turing.mybinder.org</a></p>
-</li>
-</ul>
-<div class="lead">Step by step summary</div>
+<p>Anyone should be able to run the provided computer configuration on a commercial cloud, a laptop, or a cluster from the <a href="https://hub.docker.com/repository/docker/gaelforget/notebooks">Docker image</a> using this command for example:</p>
+<pre><code class="julia hljs">docker run -p <span class="hljs-number">8888</span>:<span class="hljs-number">8888</span> gaelforget/notebooks:latest</code></pre>
+<p>A bit more explanation is provided <a href="https://github.com/AIRCentre/JuliaEO/blob/main/docs/README-Docker-Intro.md">here in text</a> and <a href="https://youtu.be/daNrJhPPgWg">here in video</a>.</p>
+
+<br/>
+
+<div class="lead">Free Binder Service</div>
+<p>We are very grateful to the <a href="https://mybinder.readthedocs.io/en/latest/about/federation.html">BinderHub Federation</a> for deploying public BinderHubs to serve the community at no cost to the user. </p>
+<div class="alert alert-info" role="alert">
+Binder no longer works for this repository, for unclear reasons, as of Jan 2023. Instead it is recommended that you use the provided Docker image directly.</div>
  <div style="text-align:center;"></p>
 <div class="im-20"><a href="https://user-images.githubusercontent.com/20276764/156822594-9dcb6899-e3f5-45d3-a595-dc89d97aafa8.png"><img src="https://user-images.githubusercontent.com/20276764/156822594-9dcb6899-e3f5-45d3-a595-dc89d97aafa8.png" alt="Step 1" /></a> <a href="https://user-images.githubusercontent.com/20276764/156822596-b84d806f-f6cb-4d13-af81-2f8b52f42237.png"><img src="https://user-images.githubusercontent.com/20276764/156822596-b84d806f-f6cb-4d13-af81-2f8b52f42237.png" alt="Step 2" /></a> <a href="https://user-images.githubusercontent.com/20276764/156822597-2bf1c0f7-aafe-49bd-863a-ff5be7658ca3.png"><img src="https://user-images.githubusercontent.com/20276764/156822597-2bf1c0f7-aafe-49bd-863a-ff5be7658ca3.png" alt="Step 3" /></a></div>
 <p> </div>
-<div class="lead">Some Notes</div>
-<ul>
-<li><p>For repeated use it is suggested that you run the notebooks on a local computer rather than in the free cloud if possible. Not only will this probably be faster than on <code>mybinder</code> but it will also save funds that allow <code>mybinder</code> to provide these shared cloud services to the community without charge.</p>
-</li>
-<li><p>Memory limitations can occur but the resources provided by <code>mybinder</code> generally suffice to run the notebooks without excessive latency. For the <code>mybinder</code> case, notebooks have been downloaded into the <code>notebooks</code> subfolder to facilitate navigation within <code>Pluto</code>. </p>
-</li>
-<li><p>You can <a href="https://github.com/fonsp/Pluto.jl/wiki/🔎-Basic-Commands-in-Pluto">use Pluto directly</a>. You can also run our cloud computer configuration on your laptop or cluster from this <a href="https://hub.docker.com/repository/docker/gaelforget/notebooks">Docker image</a>, with <code>docker run -p 8888:8888 gaelforget/notebooks:latest</code>.</p>
-</li>
-</ul>
 <p>      </div>
     </div>
   </div>
